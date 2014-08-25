@@ -3,7 +3,10 @@
 <h3><%= @recipe.name %></h3>
 <p><%= @recipe.text%></p>
 
+<a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
+
 <a href="/recipes/<%= @recipe.id %>"
    data-confirm="You sure?"
    data-method="delete"
    rel="nofollow">Delete</a>
+

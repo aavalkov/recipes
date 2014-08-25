@@ -18,4 +18,19 @@ class TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     render('tags/show.html.erb')
   end
+
+  def edit
+    @tag = Tag.find(params[:id])
+    render('tags/edit.html.erb')
+  end
+
+  def update
+    @tag = Tag.find(params[:id])
+    if @tag.update(params[:tag])
+      flash[:notice] = "Your tag was updated."
+      redirect_to("/tags/#{@tag.id}")
+    else
+      render('tags/edit.html.erb')
+    end
+  end
 end
