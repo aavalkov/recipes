@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
+    @tags = Tag.all
     render('recipes/index.html.erb')
   end
 
