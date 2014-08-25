@@ -2,4 +2,8 @@
 <input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>">
 <label for "recipe_text">Instructions</label>
 <input id="recipe_text" name="recipe[text]" type="text" value="<%= @recipe.text %>">
+<label for "tag_id">Tags</label>
+<% @tags.each do |tag| %>
+  <input id="tag_id" name="tags[]" type="checkbox" value="<%= tag.id %>"><%= tag.name %></input>
+<% end %>
 

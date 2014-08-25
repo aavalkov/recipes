@@ -3,6 +3,13 @@
 <h3><%= @recipe.name %></h3>
 <p><%= @recipe.text%></p>
 
+<h3>Tags</h3>
+  <ul>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
+
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
 
 <a href="/recipes/<%= @recipe.id %>"

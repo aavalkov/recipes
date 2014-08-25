@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new(params[:recipe])
+    @tags = Tag.all
     render('recipes/new.html.erb')
   end
 
@@ -14,6 +15,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
     if @recipe.save
       flash[:notice] = "Your recipe was added."
+      if params[:tags]
+        tags = params[:tags]
+        tags.each do |tag|
+          @recipe.tags << Tag.find(tag.to_i)
+        end
+      end
       redirect_to("/recipes/#{@recipe.id}")
     else
       render('recipes/new.html.erb')
@@ -37,6 +44,12 @@ class RecipesController < ApplicationController
       redirect_to("/recipes/#{@recipe.id}")
     else
       render('recipes/edit.html.erb')
+    end
+    if params[:tag]
+      tags = params[:tag]
+      tags.each do |tag|
+        @recipe.tags < tag
+      end
     end
   end
 
