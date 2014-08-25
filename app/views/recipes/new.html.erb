@@ -1,0 +1,9 @@
+<h1>Recipes</h1>
+
+<h2>Enter a new recipe</h2>
+
+<%= render('layouts/errors', :object => @recipe) %>
+
+<form action="/recipes" method="post">
+  <%= render('form') %>
+</form>
