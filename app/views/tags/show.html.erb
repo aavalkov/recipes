@@ -8,3 +8,9 @@
 </ul>
 
 <a href="/tags/<%= @tag.id %>/edit">Edit</a>
+
+<a href="/tags/<%= @tag.id %>"
+   data-confirm="You sure?"
+   data-method="delete"
+   rel="nofollow">Delete</a>
+

@@ -33,4 +33,10 @@ class TagsController < ApplicationController
       render('tags/edit.html.erb')
     end
   end
+
+   def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    redirect_to("/")
+  end
 end
