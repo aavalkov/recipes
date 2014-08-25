@@ -1,16 +1,19 @@
-<h1><%= @tag.name %></h1>
+<div class="container">
+  <h1><%= @tag.name %></h1>
 
-<h2>Recipes:</h2>
-<ul>
-  <% @tag.recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
-  <% end %>
-</ul>
+  <h2>Recipes:</h2>
+  <ul>
+    <% @tag.recipes.each do |recipe| %>
+      <li><%= recipe.name %></li>
+    <% end %>
+  </ul>
 
-<a href="/tags/<%= @tag.id %>/edit">Edit</a>
+  <a href="/tags/<%= @tag.id %>/edit">Edit</a>
 
-<a href="/tags/<%= @tag.id %>"
-   data-confirm="You sure?"
-   data-method="delete"
-   rel="nofollow">Delete</a>
+  <a href="/tags/<%= @tag.id %>"
+     data-confirm="You sure?"
+     data-method="delete"
+     rel="nofollow">Delete</a>
+</div>
+
 

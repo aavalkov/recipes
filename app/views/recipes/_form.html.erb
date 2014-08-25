@@ -1,9 +1,24 @@
-<label for "recipe_name">Name</label>
-<input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>">
-<label for "recipe_text">Instructions</label>
-<input id="recipe_text" name="recipe[text]" type="text" value="<%= @recipe.text %>">
-<label for "tag_id">Tags</label>
-<% @tags.each do |tag| %>
-  <input id="tag_id" name="tags[]" type="checkbox" value="<%= tag.id %>"><%= tag.name %></input>
-<% end %>
+<div class="row">
+  <div class="col-md-5">
+    <div class="form-group">
+      <label for "recipe_name">Name</label>
+      <input id="recipe_name" class="form-control" name="recipe[name]" type="text" value="<%= @recipe.name %>">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for "recipe_text">Instructions</label>
+      <textarea id="recipe_text" class="form-control" name="recipe[text]" type="text" rows="5"><%= @recipe.text %></textarea>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label for "tag_id">Tags</label>
+  <% @tags.each do |tag| %>
+    <input id="tag_id" name="tags[]" type="checkbox" value="<%= tag.id %>"><%= tag.name %></input>
+  <% end %>
+</div>
+
 

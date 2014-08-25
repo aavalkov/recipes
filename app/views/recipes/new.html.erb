@@ -1,12 +1,13 @@
-<h1>Recipes</h1>
+<div class="container">
+  <h1>Recipes</h1>
 
-<h2>Enter a new recipe</h2>
+  <h2>Enter a new recipe</h2>
 
-<%= render('layouts/errors', :object => @recipe) %>
+  <%= render('layouts/errors', :object => @recipe) %>
 
-<form action="/recipes" method="post">
-  <%= render('form') %>
-  <button>Add Recipe</button>
-</form>
-
+  <form action="/recipes" method="post">
+    <%= render('form') %>
+    <button>Add Recipe</button>
+  </form>
+</div>
 
