@@ -38,4 +38,10 @@ class RecipesController < ApplicationController
       render('recipes/edit.html.erb')
     end
   end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to("/")
+  end
 end
