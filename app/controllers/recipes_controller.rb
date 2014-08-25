@@ -2,7 +2,13 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @tags = Tag.all
-    render('recipes/index.html.erb')
+    if params[:search]
+      search = params[:search]
+      @results = Recipe.basic_search(search[:query])
+      render('recipes/index.html.erb')
+    else
+      render('recipes/index.html.erb')
+    end
   end
 
   def new
@@ -33,6 +39,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @tags = Tag.all
     @recipe = Recipe.find(params[:id])
     render('recipes/edit.html.erb')
   end
@@ -41,6 +48,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if @recipe.update(params[:recipe])
       flash[:notice] = "Your recipe was updated."
+      if params[:tags]
+        tags = params[:tags]
+        tags.each do |tag|
+          @recipe.tags << Tag.find(tag.to_i)
+        end
+      end
       redirect_to("/recipes/#{@recipe.id}")
     else
       render('recipes/edit.html.erb')

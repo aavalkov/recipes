@@ -2,7 +2,7 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
+    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
   <% end %>
 </ul>
 
@@ -12,3 +12,23 @@
     <li> <%= tag.name %></li>
     <% end %>
 </ul>
+
+<h2>Search</h2>
+
+<form action="/" method="get">
+  <label>Search:</label>
+  <input name="search[query]" type="text">
+  <button>Search</button>
+</form>
+
+<% if !@results.nil? %>
+
+<h2>Results</h2>
+
+  <ul>
+    <% @results.each do |result| %>
+      <li><%= result.name %></li>
+    <% end %>
+  </ul>
+
+<% end %>
